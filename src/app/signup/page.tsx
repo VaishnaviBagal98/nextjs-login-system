@@ -6,7 +6,10 @@ import { toast} from "react-hot-toast"
 import { useRouter } from 'next/navigation'
 import Link from 'next/link';
 
+
+
 export default function signupPage(){
+
     const router = useRouter()
     const [user, setUser] = useState({
         email: "",
@@ -14,10 +17,34 @@ export default function signupPage(){
         username: ""
     })
 
+    const validatePassword = (password: any) => {
+        const minLength = password.length >= 8;
+        const hasLetter = /[a-zA-Z]/.test(password);
+        const hasNumber = /\d/.test(password);
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+        if (!minLength) return 'Password must be at least 8 characters long.';
+        if (!hasLetter) return 'Password must contain at least one letter.';
+        if (!hasNumber) return 'Password must contain at least one number.';
+        if (!hasSpecialChar) return 'Password must contain at least one special character.';
+
+        return '';
+    };
+
     const [buttonDisabled, setButtonDisabled] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [passwordError, setPasswordError] = useState("");
 
     const onSignup = async() => {
+
+        const error = validatePassword(user.password);
+        if (error) {
+            setPasswordError(error);
+            return;
+        } else {
+            setPasswordError("");
+        }
+
         try {
             setLoading(true)
             const response = await axios.post("/api/users/signup", user)
@@ -76,6 +103,7 @@ export default function signupPage(){
           placeholder="password"
           type="password" 
           /> 
+          {passwordError && <p className="text-red-500">{passwordError}</p>}
 
           <button
           onClick={onSignup}
