@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Sign-In/Login Application
+This is a simple Next.js application that implements user authentication through a sign-in/login page. 
+Users can register, log in, and access routes. The application is built using NextJs ,React  and MongoDB, making it scalable and efficient.
 
 ## Getting Started
 
@@ -20,17 +22,24 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- **User Registration**: Users can create a new account by providing their email and password.
+- **User Login**: Registered users can log in to their accounts securely.
+- **Input Validation**: Ensures that user input meets specified criteria before processing.
+- **Email Verification**:Token will generate and sent to email for user verification
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  ## Technologies Used
+  
+- **Node.js**: JavaScript runtime for server-side development.
+- **NextJs**: Web application framework for building APIs.
+- **MongoDB**: NoSQL database for storing user information.
+- **ReactJs**: For frontend development
+- **Typescript**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ## Installation
 
-## Deploy on Vercel
+1. **Clone the repository:**
+   ```bash
+   https://github.com/VaishnaviBagal98/node-login-app.git
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
